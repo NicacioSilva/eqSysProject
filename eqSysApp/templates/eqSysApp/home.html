@@ -11,6 +11,14 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="numero">Numero: </label>
+        <input name="numero" id="inumero">
+        <input type="submit" value="Submit">
+    </form><br>
+
+    <h1>{{ numero }}&sup2 = {{ result }}</h1>
 
 </body>
 </html>

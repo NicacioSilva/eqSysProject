@@ -2,4 +2,12 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'eqSysApp/home.html')
+    context = {}
+    if request.method == 'POST':
+        numero = int(request.POST.get("numero"))
+        result = numero**2
+        context = {
+            'numero': numero,
+            'result': result,
+        }
+    return render(request, 'eqSysApp/home.html', context)
