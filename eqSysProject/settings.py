@@ -55,7 +55,7 @@ ROOT_URLCONF = 'eqSysProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'eqSysApp/templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
