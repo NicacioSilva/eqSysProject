@@ -13,6 +13,7 @@
         <input name="b2" placeholder="b&#8322;" size="1" style="text-align: center" type="number" step="any" required>
         <label for="y2">y&#8322; = </label>
         <input name="c2" placeholder="c&#8322;" size="1" style="text-align: center" type="number" step="any" required>
+
         <br><input type="submit" value="Submit">
     </form>
 {% endblock 2x2system %}
@@ -26,7 +27,7 @@
             <h2><a class="article-title" href="#">Solution:</a></h2>
 
             <p class="article-content">
-                [{{ x|floatformat }}, {{ y|floatformat }}]
+                [{{ x|floatformat:-3 }}, {{ y|floatformat:-3 }}]
             </p>
 
         </div>
