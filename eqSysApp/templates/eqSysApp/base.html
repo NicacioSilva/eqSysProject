@@ -58,9 +58,18 @@
         <div class="col-md-8">
             <form method="post">
                 {% csrf_token %}
-                <label for="number">Number: </label>
-                <input name="number" id="inumero">
-                <input type="submit" value="Submit">
+                <input name="x1" placeholder="a&#8321;" size="1" style="text-align: center">
+                <label for="x1">x&#8321; + </label>
+                <input name="y1" placeholder="b&#8321;" size="1" style="text-align: center">
+                <label for="y1">y&#8321; = </label>
+                <input name="c1" placeholder="c&#8321;" size="1" style="text-align: center">
+                <br>
+                <input name="x2" placeholder="a&#8322;" size="1" style="text-align: center">
+                <label for="x2">x&#8322; + </label>
+                <input name="y2" placeholder="b&#8322;" size="1" style="text-align: center">
+                <label for="y2">y&#8322; = </label>
+                <input name="c2" placeholder="c&#8322;" size="1" style="text-align: center">
+                <br><input type="submit" value="Submit">
             </form>
             <br>
 

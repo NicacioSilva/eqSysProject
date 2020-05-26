@@ -4,7 +4,7 @@ from django.shortcuts import render
 def home(request):
     context = {}
     if request.method == 'POST':
-        number = int(request.POST.get("number"))
+        number = float(request.POST.get("number"))
         result = number**2
         context = {
             'number': number,
