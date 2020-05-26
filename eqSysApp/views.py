@@ -4,10 +4,10 @@ from django.shortcuts import render
 def home(request):
     context = {}
     if request.method == 'POST':
-        numero = int(request.POST.get("numero"))
-        result = numero**2
+        number = int(request.POST.get("number"))
+        result = number**2
         context = {
-            'numero': numero,
+            'number': number,
             'result': result,
         }
     return render(request, 'eqSysApp/home.html', context)
