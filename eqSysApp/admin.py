@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from eqSysApp.models import EquationSystem
+
+admin.site.register(EquationSystem)
