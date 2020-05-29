@@ -16,4 +16,5 @@ def home(request):
 
 
 def about(request):
-    return render(request, 'eqSysApp/about.html')
+    context = {'title': 'About'}
+    return render(request, 'eqSysApp/about.html', context)
