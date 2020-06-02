@@ -14,26 +14,56 @@
         <label for="y2">y&#8322; = </label>
         <input name="c2" placeholder="c&#8322;" size="1" style="text-align: center" type="number" step="any" required>
 
+        <br><label for="cars">Choose a Method:</label>
+        <select id="cars" name="method">
+            <option value="substitution">Substitution Method</option>
+            <option value="elimination">Elimination Method</option>
+            <option value="cramer-rule">Cramer's Rule Method</option>
+            <option value="inverse-matrix">Inverse matrix Method</option>
+        </select>
+
         <br><input type="submit" value="Submit">
     </form><br>
 {% endblock 2x2system %}
 {% block content %}
-    <article class="media content-section">
-        <div class="media-body">
-            <div class="article-metadata">
-                <a class="mr-2" href="#">Altor</a>
-                <small class="text-muted">Date and Time</small>
+    {% if message == 'Successfully solved!' %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">Altor</a>
+                    <small class="text-muted">Date and Time</small>
+                </div>
+                <h2><a class="article-title" href="#">Solution:</a></h2>
+
+                $$ \begin{cases} {{ expr_1 }}={{ c1 }} & \text{(i)} \\[1ex] {{ expr_2 }}={{ c2 }} & \text{(ii)}
+                \end{cases} $$
+
+                {% for step in steps %}
+                    <h3>{{ step.step_name }}</h3>
+                    {% for body in step.step_body %}
+                        <h6>&emsp;{{ body }}</h6>
+                    {% endfor %}
+                {% endfor %}
+
+                <p class="article-content">
+                    [{{ x|floatformat:-3 }}, {{ y|floatformat:-3 }}] {{ message }}
+                </p>
+
             </div>
-            <h2><a class="article-title" href="#">Solution:</a></h2>
+        </article>
+    {% elif message == 'The system has no solution or it is indeterminate.' %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">Altor</a>
+                    <small class="text-muted">Date and Time</small>
+                </div>
+                <h2><a class="article-title" href="#">Solution:</a></h2>
 
-
-            $$ \begin{cases} {{ expr_1 }}={{ c1 }} & \text{(i)} \\[1ex] {{ expr_2 }}={{ c2 }} & \text{(ii)} \end{cases}
-            $$
-
-            <p class="article-content">
-                [{{ x|floatformat:-3 }}, {{ y|floatformat:-3 }}]
-            </p>
-
-        </div>
-    </article>
+                $$ \begin{cases} {{ expr_1 }}={{ c1 }} & \text{(i)} \\[1ex] {{ expr_2 }}={{ c2 }} & \text{(ii)}
+                \end{cases} $$
+                {{ message }}
+            </div>
+        </article>
+    {% endif %}
 {% endblock content %}
