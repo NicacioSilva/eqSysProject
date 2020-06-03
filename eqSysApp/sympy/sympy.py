@@ -24,7 +24,8 @@ def sys_2x2(dic):
         system = Matrix(((a1, b1, c1), (a2, b2, c2)))
         dictionary = solve_linear_system(system, 'x', 'y')
         dictionary.update({'message': 'Successfully solved!'})
-        from eqSysApp.sympy.steps_2x2_substitution import steps
+        from eqSysApp.sympy.steps_2x2_substitution import system_2x2_solution_steps
+        steps = system_2x2_solution_steps(a1, b1, c1, a2, b2, c2)
         dictionary.update({'steps': steps})
     else:
         dictionary.update({'message': 'The system has no solution or it is indeterminate.'})

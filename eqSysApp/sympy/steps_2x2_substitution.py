@@ -1,4 +1,4 @@
-'''
+from sympy import *
 
 '''
 steps = [
@@ -19,3 +19,26 @@ steps = [
         'step_body': ['body 1', 'body 2', 'body 3'],
     }
 ]
+'''
+
+
+def system_2x2_solution_steps(a1, b1, c1, a2, b2, c2):
+    x, y = symbols('x y')
+    steps = []
+
+    step_name = 'Step 1'
+    step_body = []
+    body_1 = ''
+    if a1 != 0:
+        body_1 = r'\begin{align} \text{Isolate x of }' + \
+                 f'{latex(a1 * x + b1 * y)}' + \
+                 r'& =' + \
+                 f'{c1} ' + \
+                 r'\Rightarrow' + \
+                 r'\\ x & =' + \
+                 f'{latex(factor((c1 - b1 * y) / (a1)))}' + \
+                 r'\end{align}'
+        step_body.append(body_1)
+    steps.append({'step_name': step_name, 'step_body': step_body})
+
+    return steps
